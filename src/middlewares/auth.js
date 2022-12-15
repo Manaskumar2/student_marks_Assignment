@@ -20,7 +20,7 @@ const authorization = async (req,res,next) => {
     try {
         let studentId = req.params.studentId
 
-        if(!validation.isValidObjectId(studentId)) return res.status(403).send({status:false,message:"userId is invalid"})
+        if(!validation.isValidObjectId(studentId)) return res.status(403).send({status:false,message:"StudentId is invalid"})
 
         let findStudent = await studentModel.findOne({_id:studentId})
         if(!findStudent) return res.status(403).send({status:false,message:"no student exsists with this Id"})
